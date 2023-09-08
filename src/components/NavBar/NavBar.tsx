@@ -5,6 +5,7 @@ export function NavBar() {
     const [activeSection, setActiveSection] = useState("");
     const [thirdSection, setThirdSection] = useState(false);
 
+    useEffect(() => {
         function handleScroll() {
             const sections = document.querySelectorAll("section");
 

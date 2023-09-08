@@ -4,7 +4,6 @@ import styles from "./form.module.css";
 export function Form() {
     const [userName, setUserName] = useState("");
     const [submitted, setSubmitted] = useState(false);
-    const userNameInputRef = useRef();
 
     useEffect(() => {
         if (submitted) {
@@ -18,9 +17,8 @@ export function Form() {
     }, [submitted]);
 
     function handleSubmit(e) {
+        e.preventDefault(); // Prevent the default form submission behavior
         setSubmitted(true);
-        e.preventDefault();
-        setUserName(userNameInputRef.current.value);
     }
 
     return (
@@ -35,7 +33,7 @@ export function Form() {
                         type="text"
                         name="userName"
                         id="userName"
-                        ref={userNameInputRef}
+                        onChange={(e) => setUserName(e.target.value)}
                     />
                     <input type="submit" value="Submit" />
                 </form>
