@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 import { Carousel } from "./components/Carousel/Carousel";
 import { Counter } from "./components/Counter/Counter";
 import { Form } from "./components/Form/Form";
