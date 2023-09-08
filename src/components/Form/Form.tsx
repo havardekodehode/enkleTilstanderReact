@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./form.module.css";
 
 export function Form() {
@@ -16,7 +16,7 @@ export function Form() {
         }
     }, [submitted]);
 
-    function handleSubmit(e) {
+    function handleSubmit(e: { preventDefault: () => void }) {
         e.preventDefault(); // Prevent the default form submission behavior
         setSubmitted(true);
     }

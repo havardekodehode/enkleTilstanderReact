@@ -3,7 +3,6 @@ import styles from "./navBar.module.css";
 
 export function NavBar() {
     const [activeSection, setActiveSection] = useState("");
-    const [thirdSection, setThirdSection] = useState(false);
 
     useEffect(() => {
         function handleScroll() {
@@ -40,10 +39,7 @@ export function NavBar() {
 
     return (
         <>
-            <div
-                className={styles.navContainer}
-                style={{ backgroundColor: thirdSection ? "gray" : "" }}
-            >
+            <div className={styles.navContainer}>
                 <ul>
                     {navLinks.map(({ label, sectionId }) => (
                         <li

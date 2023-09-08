@@ -1,31 +1,6 @@
-import React, { useState, useEffect } from "react";
 import styles from "./carousel.module.css";
 
 export function Carousel() {
-    const [images, setImages] = useState([]);
-
-    useEffect(() => {
-        const imagePaths = () => {
-            const imagePathsTemp = [];
-            for (let i = 2; i <= 17; i++) {
-                imagePathsTemp.push(`../../assets/react copy ${i}.svg`);
-            }
-            // console.log(imagePathsTemp);
-
-            return imagePathsTemp;
-        };
-
-        const arr = imagePaths();
-
-        const imagePromises = arr.map((path) =>
-            import(path).then((module) => module.default)
-        );
-
-        Promise.all(imagePromises).then((importedImages) => {
-            setImages(importedImages);
-        });
-    }, []);
-
     function getRandomColor() {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
@@ -33,7 +8,7 @@ export function Carousel() {
         return `rgb(${r},${g},${b})`;
     }
 
-    const numSVGs = 17; // Change this to the number of SVGs you want
+    const numSVGs = 20;
     const randomColors = Array.from({ length: numSVGs }, getRandomColor);
 
     return (
@@ -50,7 +25,6 @@ export function Carousel() {
                             height="32"
                             preserveAspectRatio="xMidYMid meet"
                             viewBox="0 0 256 228"
-                            // style={{ fill: color }}
                         >
                             <path
                                 className={`${styles.glow}`}
@@ -64,9 +38,3 @@ export function Carousel() {
         </section>
     );
 }
-
-// {images.map((img, index) => (
-//     <li key={index} className={styles.navLi}>
-//         <img src={img} alt={`Image ${index}`} />
-//     </li>
-// ))}
