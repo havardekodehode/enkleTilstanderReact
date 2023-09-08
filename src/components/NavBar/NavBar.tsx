@@ -3,30 +3,29 @@ import styles from "./navBar.module.css";
 
 export function NavBar() {
     const [activeSection, setActiveSection] = useState("");
+    const [thirdSection, setThirdSection] = useState(false);
 
-    useEffect(() => {
-        // Function to handle scroll events
         function handleScroll() {
             const sections = document.querySelectorAll("section");
 
             sections.forEach((section) => {
                 const rect = section.getBoundingClientRect();
                 const sectionId = section.id;
+                const windowHeight = window.innerHeight;
 
-                if (rect.top <= 50 && rect.bottom >= 50) {
-                    // The section is currently in the viewport
+                if (
+                    rect.top <= windowHeight / 2 &&
+                    rect.bottom >= windowHeight / 2
+                ) {
                     setActiveSection(sectionId);
                 }
             });
         }
 
-        // Add scroll event listener
         window.addEventListener("scroll", handleScroll);
 
-        // Initial check for active section on mount
         handleScroll();
 
-        // Cleanup on unmount
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
@@ -40,7 +39,10 @@ export function NavBar() {
 
     return (
         <>
-            <div className={styles.navContainer}>
+            <div
+                className={styles.navContainer}
+                style={{ backgroundColor: thirdSection ? "gray" : "" }}
+            >
                 <ul>
                     {navLinks.map(({ label, sectionId }) => (
                         <li

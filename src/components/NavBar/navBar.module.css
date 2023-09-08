@@ -34,3 +34,9 @@ a {
     background-color: rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
 }
+
+@media screen and (min-width: 760px) {
+    .navContainer {
+        font-size: 2rem;
+    }
+}
