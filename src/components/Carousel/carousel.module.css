@@ -1,0 +1,64 @@
+.carouselContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(69, 62, 62);
+}
+
+/* ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+} */
+
+.carouselUl {
+    gap: 9rem;
+    overflow-x: scroll;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* width: 200vw; */
+}
+
+.carouselUl > * {
+    scale: 4;
+    /* height: 100%; */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: center center; /* Rotate from the center */
+    }
+    100% {
+        transform: rotate(360deg);
+        transform-origin: center center; /* Rotate from the center */
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        opacity: 1;
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(69, 69, 69, 0.6);
+        opacity: 0.3;
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        opacity: 1;
+    }
+}
+
+.glow {
+    animation: glow 2s infinite, spin 10s infinite;
+}
+
+.li:hover {
+    transition: ease-in-out 1s;
+    transform: scale(1.5);
+}

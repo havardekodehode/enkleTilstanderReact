@@ -1,0 +1,21 @@
+.formContainer {
+    height: 100vh;
+    background-color: rgb(166, 160, 160);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    /* flex-wrap: wrap; */
+}
+
+form {
+}
+
+input {
+}
+
+.block {
+    display: block;
+    margin: 0;
+}
